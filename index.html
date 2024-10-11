@@ -1,0 +1,503 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>VGWT - Worldwide Trading Services</title>
+
+    <style>
+        /* General Reset */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        /* Body Styling */
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #ffffff; /* White background */
+            color: #333;
+            scroll-behavior: smooth; /* Smooth scrolling */
+        }
+
+        /* Container */
+        .container {
+            width: 80%;
+            height: auto;
+            margin: auto;
+            overflow: hidden;
+        }
+
+        /* Header */
+        header {
+            background-color: #001f3f; /* Navy blue */
+            color: white;
+            padding: 20px 0;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            transition: background-color 0.3s ease;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+        }
+
+        .logo-img {
+            width: 150px;
+            margin-right: 25px;
+            animation: rotate 4s infinite alternate;
+        }
+
+        h1 {
+            font-size: 2rem;
+            font-weight: bold;
+        }
+
+        @keyframes rotate {
+            0% {
+                transform: rotate(0deg);
+            }
+            100% {
+                transform: rotate(360deg);
+            }
+        }
+
+        nav {
+            float: right;
+        }
+
+        nav ul {
+            list-style: none;
+            display: flex;
+            gap: 15px;
+        }
+
+        nav ul li {
+            position: relative;
+        }
+
+        nav ul li a {
+            color: white;
+            text-decoration: none;
+            font-weight: bold;
+            transition: color 0.3s ease;
+        }
+
+        nav ul li a:hover {
+            color: #ffcc00; /* Enhanced Gold */
+        }
+
+        /* Hero Section */
+        .hero {
+
+            height: 1000px;
+            background-image: url("imagesproduct1.jpg.png"); 
+            color: white; /* Navy blue text */
+            background-repeat: no-repeat;
+            background-attachment: scroll;
+            background-size: 100%;
+
+            text-align: center;
+            margin: 60px;
+            border-bottom: 5px solid #ffcc00; /* Enhanced Gold accent */
+            animation: fadeIn 2s ease-in-out;
+        }
+
+        .hero h2 {
+            font-size: 3rem;
+            margin-bottom: 20px;
+            font-family: 'Arial Black', sans-serif;
+            letter-spacing: 2px;
+        }
+
+        .hero p {
+            font-size: 1.2rem;
+            margin-bottom: 20px;
+            letter-spacing: 1px;
+        }
+
+        .hero .btn {
+            background-color: #ffcc00; /* Enhanced Gold */
+            padding: 15px 30px;
+            color: #001f3f;
+            text-decoration: none;
+            border-radius: 5px;
+            font-size: 1rem;
+            font-weight: bold;
+            transition: background-color 0.3s ease-in-out, color 0.3s ease;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .hero .btn:hover {
+            background-color: #001f3f;
+            color: #ffcc00; /* Enhanced Gold */
+            box-shadow: 0 4px 20px rgba(0, 31, 63, 0.3);
+        }
+
+        @keyframes fadeIn {
+            0% {
+                opacity: 0;
+            }
+            100% {
+                opacity: 1;
+            }
+        }
+
+        /* Slideshow */
+        .slideshow {
+            display: flex;
+            flex-direction: row;
+            margin: 40px;
+            align-items: center;
+            padding: 100px;
+        }
+
+        .slides {
+            width: 400px;
+            height: 350px;
+            object-fit: cover;
+            border-radius: 8px;
+            margin: 5px;
+        }
+
+        .slides.active {
+            display: block;
+            animation: fadeIn 1.5s ease-in-out;
+        }
+
+        /* Products Section */
+        .products {
+            padding: 40px 0;
+            text-align: center;
+        }
+
+        .products h3 {
+            font-size: 2.5rem;
+            margin-bottom: 30px;
+            color: #001f3f;
+            font-family: 'Arial Black', sans-serif;
+        }
+
+        .product-grid {
+            display: flex;
+            justify-content: space-between;
+            flex-wrap: wrap;
+        }
+
+        .product {
+            background: white;
+            border: 1px solid #d3d3d3; /* Light gray */
+            border-radius: 10px;
+            padding: 20px;
+            width: 23%;
+            margin-bottom: 20px;
+            transition: transform 0.3s ease-in-out, box-shadow 0.3s ease;
+        }
+
+        .product img {
+            width: 100%;
+            border-radius: 8px;
+            margin-bottom: 10px;
+        }
+
+        .product:hover {
+            transform: scale(1.05);
+            box-shadow: 0 0 15px rgba(0, 31, 63, 0.1);
+        }
+
+        .product h4 {
+            margin-bottom: 10px;
+            font-size: 1.4rem;
+            color: #001f3f;
+        }
+
+        .product p {
+            color: #777;
+            font-size: 1rem;
+        }
+
+        /* Testimonials Section */
+        .testimonials {
+            background-color: #001f3f;
+            padding: 40px 0;
+            color: white;
+            text-align: center;
+        }
+
+        .testimonials h3 {
+            font-size: 2.5rem;
+            margin-bottom: 30px;
+            color: #ffcc00; /* Enhanced Gold */
+        }
+
+        .testimonials .testimonial {
+            margin-bottom: 20px;
+            font-style: italic;
+            color: #ddd;
+        }
+
+        /* Footer */
+        footer {
+            background-color: #001f3f; /* Navy blue */
+            color: white;
+            text-align: center;
+            padding: 20px 0;
+            border-top: 5px solid #ffcc00; /* Enhanced Gold */
+        }
+
+        footer p {
+            margin: 0;
+        }
+
+        /* Scroll to Top Button */
+        .scroll-top-btn {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            background: #ffcc00; /* Enhanced Gold */
+            color: #001f3f;
+            padding: 10px 15px;
+            font-size: 18px;
+            border-radius: 50%;
+            cursor: pointer;
+            display: none;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s ease;
+        }
+
+        .scroll-top-btn:hover {
+            background: #001f3f;
+            color: #ffcc00; /* Enhanced Gold */
+        }
+
+        /* Modal (Pop-up) */
+        .modal {
+            display: none; /* Hidden by default */
+            position: fixed;
+            z-index: 1000;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.5); /* Black with opacity */
+        }
+
+        .modal-content {
+            background-color: white;
+            margin: 15% auto;
+            padding: 20px;
+            border: 1px solid #888;
+            width: 80%;
+            max-width: 500px;
+            border-radius: 10px;
+        }
+
+        .close-btn {
+            color: #aaa;
+            float: right;
+            font-size: 28px;
+            font-weight: bold;
+        }
+
+        .close-btn:hover, .close-btn:focus {
+            color: #000;
+            text-decoration: none;
+            cursor: pointer;
+        }
+
+        .modal h2 {
+            color: #001f3f;
+            margin-bottom: 20px;
+        }
+
+        .modal input, .modal textarea {
+            width: 100%;
+            padding: 10px;
+            margin: 10px 0;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+
+        .modal button {
+            background-color: #ffcc00;
+            color: #001f3f;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        .modal button:hover {
+            background-color: #001f3f;
+            color: #ffcc00;
+        }
+
+        /* Media Queries */
+        @media (max-width: 768px) {
+            .container {
+                width: 95%;
+            }
+
+            .product-grid {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .product {
+                width: 90%;
+                margin-bottom: 30px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .hero h2 {
+                font-size: 2rem;
+            }
+
+            .hero p {
+                font-size: 1rem;
+            }
+
+            nav ul {
+                flex-direction: column;
+                align-items: center;
+            }
+        }
+    </style>
+</head>
+<a href="pages/Contact.html"></a>
+<body>
+    <header>
+        <div class="container">
+            <div class="logo">
+                <img src="../newlogo.png" alt="VGWT Logo" class="logo-img">
+                <h1>VGWT - Worldwide Trading Services</h1>
+            </div>
+            <nav>
+                <ul>
+                    <li><a href="#home">Home</a></li>
+                    <li><a href="About-us.html">About</a></li>
+                    <li><a href="Product.html">Products</a></li>
+                    <li><a href="Contact.html">Contact</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <section class="hero">
+            <!-- <img src="imagesproduct1.jpg.png" alt=""> -->
+            <h2>Your Trusted Trading Partner</h2>
+            <p>Fast, Reliable, and Efficient Trading Solutions.</p>
+            <a href="#products" class="btn">Explore Products</a>
+        </section>
+        
+        <section class="slideshow">
+            <img class="slides" src="truck1.png" alt="Truck 1">
+            <img class="slides" src="Electronics.png" alt="Truck 2">
+            <img class="slides" src="truck2.png" alt="Truck 3">
+            <img class="slides" src="Under construction .png" alt="Truck 3">
+        </section>
+
+        <section id="products" class="products">
+            <h3>Our Featured trading Transport Solutions</h3>
+            <div class="product-grid">
+                <div class="product">
+                    <img src="Spices.png" alt="Product 1">
+                    <h4>Spices</h4>
+                    <p>Bringing the world’s finest spices to your table.Explore our diverse range of spices and discover the magic they bring to your kitchen.</p>
+                </div>
+                <div class="product">
+                    <img src="truck1.png" alt="Product 2">
+                    <h4>Cans</h4>
+                    <p>Supplying quality cans worldwide, delivering durability and trust.</p>
+                </div>
+                <div class="product">
+                    <img src="Electronics.png" alt="Product 3">
+                    <h4>Electronics</h4>
+                    <p>Powering innovation with cutting-edge electronics for a smarter world.</p>
+                </div>
+                <div class="product">
+                    <img src="../Textile and furniture.png" alt="Product 4">
+                    <h4>Furniture</h4>
+                    <p>Premium, durable, and stylish furniture for trade and export.</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="testimonials">
+            <h3>Trade with Trust, Trade with Us </h3>
+            <div class="testimonial">
+                <p>Our customers can fully rely on us; their trust is our first reward for our work.</p>
+            </div>
+            <div class="testimonial">
+                <p>"Our reliability and efficiency are unmatched. With us you will always found quality with affordability.</p>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <p>© 2024 VGWT - All Rights Reserved</p>
+    </footer>
+
+    <div class="scroll-top-btn" onclick="scrollToTop()">↑</div>
+    <script>
+        // Slideshow functionality
+        let currentSlide = 0;
+        const slides = document.querySelectorAll('.slides');
+
+        function showSlide(index) {
+            slides.forEach(slide => slide.classList.remove('active'));
+            slides[index].classList.add('active');
+        }
+
+        function nextSlide() {
+            currentSlide = (currentSlide + 1) % slides.length;
+            showSlide(currentSlide);
+        }
+
+        setInterval(nextSlide,3000); // Change every 3 seconds
+
+        // Scroll to Top Button
+        const scrollTopBtn = document.querySelector('.scroll-top-btn');
+
+        window.addEventListener('scroll', () => {
+            if (window.pageYOffset > 200) {
+                scrollTopBtn.style.display = 'block';
+            } else {
+                scrollTopBtn.style.display = 'none';
+            }
+        });
+
+        function scrollToTop() {
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
+        }
+
+        // Modal functionality
+        const modal = document.getElementById("detailsModal");
+
+        // Open modal on page load or by button click
+        window.onload = function() {
+            modal.style.display = "block";
+        };
+
+        function closeModal() {
+            modal.style.display = "none";
+        }
+
+        // Close modal when clicking outside of it
+        window.onclick = function(event) {
+            if (event.target == modal) {
+                modal.style.display = "none";
+            }
+        };
+    </script>
+</body>
+</html>
